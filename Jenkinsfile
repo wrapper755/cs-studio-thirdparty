@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'gizmotronic/oracle-java8'
-      args '-v /root/.m2:/root/.m2 -u root'
+      args '-v /root/.m2:/root/.m2 -v /var/jenkins_home:/var/jenkins_home -u root'
     }
 
   }
@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'apt-get update; apt-get install -y maven'
-        sh 'mvn -s /var/jenkin_home/settings.xml clean verify'
+        sh 'mvn -s /var/jenkins_home/settings.xml clean verify'
       }
     }
   }
