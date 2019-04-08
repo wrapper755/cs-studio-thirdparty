@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'apt-get update; apt-get install -y maven'
-        sh 'mvn -s /var/jenkins_home/settings.xml clean verify'
+        sh 'mvn -s /var/jenkin_home/settings.xml clean verify'
       }
     }
   }
